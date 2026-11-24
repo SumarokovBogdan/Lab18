@@ -5,7 +5,7 @@
 
 int main() {
     // Установка локали для корректного отображения кириллицы (опционально)
-    // setlocale(LC_ALL, "Russian");
+    setlocale(LC_ALL, "Russian");
 
     int n = 0;
     
