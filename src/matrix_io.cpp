@@ -2,16 +2,16 @@
 #include <iostream>
 #include <limits>
 
-// Создание динамической матрицы
+// РЎРѕР·РґР°РЅРёРµ РґРёРЅР°РјРёС‡РµСЃРєРѕР№ РјР°С‚СЂРёС†С‹
 int** createMatrix(const int n) {
-    int** matrix = new int* [n];
+    int** matrix = new int*[n];
     for (int i = 0; i < n; ++i) {
         matrix[i] = new int[n];
     }
     return matrix;
 }
 
-// Освобождение памяти
+// РћСЃРІРѕР±РѕР¶РґРµРЅРёРµ РїР°РјСЏС‚Рё
 void deleteMatrix(int** matrix, const int n) {
     for (int i = 0; i < n; ++i) {
         delete[] matrix[i];
@@ -19,19 +19,18 @@ void deleteMatrix(int** matrix, const int n) {
     delete[] matrix;
 }
 
-// Ввод матрицы с защитой от некорректного ввода
+// Р’РІРѕРґ РјР°С‚СЂРёС†С‹ СЃ Р·Р°С‰РёС‚РѕР№ РѕС‚ РЅРµРєРѕСЂСЂРµРєС‚РЅРѕРіРѕ РІРІРѕРґР°
 void inputMatrix(int** matrix, const int n) {
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             while (true) {
                 std::cout << "matrix[" << i << "][" << j << "] = ";
                 if (std::cin >> matrix[i][j]) {
-                    break; // Успешный ввод
-                }
-                else {
-                    std::cout << "Ошибка! Пожалуйста, введите целое число.\n";
-                    std::cin.clear(); // Сброс флага ошибки
-                    // Очистка буфера ввода
+                    break; // РЈСЃРїРµС€РЅС‹Р№ РІРІРѕРґ
+                } else {
+                    std::cout << "РћС€РёР±РєР°! РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРІРµРґРёС‚Рµ С†РµР»РѕРµ С‡РёСЃР»Рѕ.\n";
+                    std::cin.clear(); // РЎР±СЂРѕСЃ С„Р»Р°РіР° РѕС€РёР±РєРё
+                    // РћС‡РёСЃС‚РєР° Р±СѓС„РµСЂР° РІРІРѕРґР°
                     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 }
             }
@@ -39,7 +38,7 @@ void inputMatrix(int** matrix, const int n) {
     }
 }
 
-// Вывод матрицы на экран
+// Р’С‹РІРѕРґ РјР°С‚СЂРёС†С‹ РЅР° СЌРєСЂР°РЅ
 void printMatrix(int** matrix, const int n) {
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
