@@ -1,11 +1,11 @@
 #include "matrix_processor.h"
 #include "math_utils.h"
 
-// Сумма элементов побочной диагонали, делящихся на 3
+// РЎСѓРјРјР° СЌР»РµРјРµРЅС‚РѕРІ РїРѕР±РѕС‡РЅРѕР№ РґРёР°РіРѕРЅР°Р»Рё, РґРµР»СЏС‰РёС…СЃСЏ РЅР° 3
 int sumSecondaryDiagonalDiv3(int** matrix, const int n) {
     int sum = 0;
     for (int i = 0; i < n; ++i) {
-        // Элементы побочной диагонали находятся по индексу [i][n-1-i]
+        // Р­Р»РµРјРµРЅС‚С‹ РїРѕР±РѕС‡РЅРѕР№ РґРёР°РіРѕРЅР°Р»Рё РЅР°С…РѕРґСЏС‚СЃСЏ РїРѕ РёРЅРґРµРєСЃСѓ [i][n-1-i]
         int element = matrix[i][n - 1 - i];
         if (isDivisibleBy3(element)) {
             sum += element;
@@ -14,11 +14,11 @@ int sumSecondaryDiagonalDiv3(int** matrix, const int n) {
     return sum;
 }
 
-// Замена элементов ниже побочной диагонали
+// Р—Р°РјРµРЅР° СЌР»РµРјРµРЅС‚РѕРІ РЅРёР¶Рµ РїРѕР±РѕС‡РЅРѕР№ РґРёР°РіРѕРЅР°Р»Рё
 void replaceBelowSecondaryDiagonal(int** matrix, const int n) {
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
-            // Условие нахождения ниже побочной диагонали: i + j > n - 1
+            // РЈСЃР»РѕРІРёРµ РЅР°С…РѕР¶РґРµРЅРёСЏ РЅРёР¶Рµ РїРѕР±РѕС‡РЅРѕР№ РґРёР°РіРѕРЅР°Р»Рё: i + j > n - 1
             if (i + j > n - 1) {
                 matrix[i][j] = sumDigits(matrix[i][j]);
             }
